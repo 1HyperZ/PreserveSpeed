@@ -4,6 +4,7 @@ import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import static frc.robot.Constants.ChassisConstants.*;
 import frc.robot.subsystems.ChassisSubsystem;
 
 public class KeepVelocityPID  extends CommandBase{
@@ -16,7 +17,7 @@ public class KeepVelocityPID  extends CommandBase{
     }
     public double getVelocity(){
         return ((chassis.leftFrontMotor.getSelectedSensorVelocity() + 
-        chassis.rightFrontMotor.getSelectedSensorVelocity()) / 2) / (Constants.motorCountsPerMeter / 10);
+        chassis.rightFrontMotor.getSelectedSensorVelocity()) / 2) / (motorCountsPerMeter / 10);
 
     }
     private void setVelocity(double velocity){
@@ -33,12 +34,12 @@ public class KeepVelocityPID  extends CommandBase{
     public void initialize() {
         counts = 0;
         chassis.setVelocity(velocity, velocity);
-        chassis.leftFrontMotor.config_kP(0, Constants.KP);
-        chassis.rightFrontMotor.config_kP(0, Constants.KP);
-        chassis.leftFrontMotor.config_kI(0, Constants.KI);
-        chassis.rightFrontMotor.config_kI(0, Constants.KI);
-        chassis.leftFrontMotor.config_kD(0, Constants.KD);
-        chassis.rightFrontMotor.config_kD(0, Constants.KD);
+        chassis.leftFrontMotor.config_kP(0, KP);
+        chassis.rightFrontMotor.config_kP(0, KP);
+        chassis.leftFrontMotor.config_kI(0, KI);
+        chassis.rightFrontMotor.config_kI(0, KI);
+        chassis.leftFrontMotor.config_kD(0, KD);
+        chassis.rightFrontMotor.config_kD(0, KD);
     }
     
     @Override
