@@ -44,7 +44,6 @@ public class KeepVelocityPID  extends CommandBase{
     
     @Override
     public boolean isFinished() {
-    System.out.println("bill");
     return counts++ > 150;
     }
     @Override
